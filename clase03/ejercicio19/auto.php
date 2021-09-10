@@ -1,5 +1,5 @@
 <?php
-/*Aplicación No 17 (Auto)
+/*Aplicación No 19 (Auto)
 Realizar una clase llamada “Auto” que posea los siguientes atributos privados:
 
 _color (String)
