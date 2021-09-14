@@ -36,7 +36,7 @@ class Usuario
 
             if($archivo != false)
             {
-                $array = array($user->nombre, $user->clave, $user->mail);
+                $array = array($user->nombre, $user->clave, $user->mail, $user->id, $user->fecha, $user->rutaArchivo);
                 $comma_separated = implode(",", $array) . "\n";
 
                 if((fwrite($archivo, $comma_separated)) != false)
@@ -91,31 +91,68 @@ class Usuario
         $this->rutaArchivo = $destino;
     }
 
-    public static function LeerUsuarios()
+    public static function LeerUsuarios($path)
     {
-        $archivo = fopen("usuarios.csv", "r");
         $array = array();
 
-        while(($datos = fgetcsv($archivo)) !== false){
+        if(str_contains($path, '.csv'))
+        {
+            $archivo = fopen($path, "r");
 
-            $user = new Usuario($datos[0], $datos[1], $datos[2]);
-            array_push($array, $user);
+            if($archivo != false)
+            {
+                while(($datos = fgetcsv($archivo)) !== false)
+                {
+
+                    $user = new Usuario($datos[0], $datos[1], $datos[2], $datos[3], $datos[4], $datos[5]);
+                    array_push($array, $user);
+
+                }
+
+                fclose($archivo);
+            }
+
 
         }
 
-        fclose($archivo);
+        if(str_contains($path, '.json'))
+        {
+            $archivo = fopen($path, "r");
+
+            if($archivo != false)
+            {
+                while(!feof($archivo))
+                {
+                    $aux = json_decode(fgets($archivo), true);
+
+                    if($aux != null)
+                    {
+                        $user = new Usuario($aux['nombre'],$aux['clave'],$aux['mail'],$aux['id'],$aux['fecha'],$aux['rutaArchivo']);
+                        array_push($array, $user);
+                    }
+                }
+
+                fclose($archivo);
+            }
+
+        }
+
         return $array;
+
     }
 
-    public static function ArmarLista()
+    public static function ArmarLista($path)
     {
-        $array = self::LeerUsuarios();
+        $array = self::LeerUsuarios($path);
 
         foreach ($array as $user) {
             echo "<ul>";
             echo "<li>" . $user->nombre . "</li>";
             echo "<li>" . $user->clave . "</li>";
             echo "<li>" . $user->mail . "</li>";
+            echo "<li>" . $user->id . "</li>";
+            echo "<li>" . $user->fecha . "</li>";
+            echo "<li><img src='$user->rutaArchivo' alt='Imagen del usuario'></li>";  
             echo "</ul>";
         }
     }

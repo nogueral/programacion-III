@@ -15,9 +15,10 @@ Cada usuario se agrega en un renglón diferente al anterior.
 Hacer los métodos necesarios en la clase usuario.
 */
 
-if(isset($_POST["nombre"]) && isset($_POST["clave"]) && isset($_POST["mail"]))
+if(isset($_POST["nombre"]) && isset($_POST["clave"]) && isset($_POST["mail"]) && isset($_FILES["archivo"]))
 {
     $user = new Usuario($_POST["nombre"], $_POST["clave"], $_POST["mail"]);
+    $user->GuardarArchivo();
 
     if(Usuario::GuardarUsuario($user, "usuarios.json"))
     {
