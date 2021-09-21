@@ -1,0 +1,76 @@
+CARGA DE DATOS TABLA VENTA
+
+INSERT INTO `venta`(`id_producto`, `id_usuario`, `cantidad`, `fecha_de_venta`) VALUES (1001,101,2,'2020-7-19'), (1008,102,3,'2020-8-16'), (1007,102,4,'2021-1-4'), (1006,103,5,'2021-1-14'), (1003,104,6,'2021-3-20'), (1005,105,7,'2021-2-22'), (1003,104,6,'2020-2-12'), (1003,106,6,'2020-10-6'), (1002,106,6,'2021-2-4'), (1001,106,1,'2020-5-17')
+
+1. Obtener los detalles completos de todos los usuarios, ordenados alfabéticamente.
+
+SELECT * FROM `usuario` ORDER BY `apellido`
+
+2. Obtener los detalles completos de todos los productos líquidos.
+
+SELECT * FROM `producto` WHERE `tipo` = 'liquido'
+
+3. Obtener todas las compras en los cuales la cantidad esté entre 6 y 10 inclusive.
+
+SELECT * FROM `venta` WHERE `cantidad` BETWEEN 5 AND 11
+
+4. Obtener la cantidad total de todos los productos vendidos.
+
+SELECT SUM(`cantidad`) AS 'suma' FROM `venta`
+
+5. Mostrar los primeros 3 números de productos que se han enviado.
+
+SELECT * FROM `venta` LIMIT 3
+
+6. Mostrar los nombres del usuario y los nombres de los productos de cada venta.
+
+SELECT usuario.nombre, producto.nombre FROM `usuario` INNER JOIN `venta` ON usuario.id_usuario = venta.id_usuario INNER JOIN `producto` ON producto.id_producto = venta.id_producto
+
+7. Indicar el monto (cantidad * precio) por cada una de las ventas.
+
+SELECT venta.cantidad*producto.precio FROM `venta` INNER JOIN `producto` ON venta.id_producto = producto.id_producto
+
+8. Obtener la cantidad total del producto 1003 vendido por el usuario 104.
+
+SELECT SUM(`cantidad`) FROM `venta` WHERE `id_producto` = 1003 && `id_usuario` = 104
+
+9. Obtener todos los números de los productos vendidos por algún usuario de ‘Avellaneda’.
+
+SELECT `id_producto` FROM `venta` INNER JOIN `usuario` ON usuario.id_usuario = venta.id_usuario WHERE usuario.localidad = 'Avellaneda'
+
+10.Obtener los datos completos de los usuarios cuyos nombres contengan la letra ‘u’.
+
+SELECT * FROM `usuario` WHERE `nombre` LIKE '%u%'
+
+11. Traer las ventas entre junio del 2020 y febrero 2021.
+
+SELECT * FROM `venta` WHERE `fecha_de_venta` BETWEEN '2020-6-1' AND '2021-2-29'
+
+12. Obtener los usuarios registrados antes del 2021.
+
+SELECT * FROM `usuario` WHERE `fecha_de_registro` < '2021-01-01'
+
+13.Agregar el producto llamado ‘Chocolate’, de tipo Sólido y con un precio de 25,35.
+
+INSERT INTO `producto`(`codigo_de_barra`, `nombre`, `tipo`, `stock`, `precio`, `fecha_de_creacion`, `fecha_de_modificacion`) VALUES (77900328,'Chocolate','solido',58,25.35,'2021-4-12','2021-4-14')
+
+14.Insertar un nuevo usuario .
+
+INSERT INTO `usuario`(`nombre`, `apellido`, `clave`, `mail`, `fecha_de_registro`, `localidad`) VALUES ('Leandro','Noguera','1274','leandrodnog@gmail.com','2021-4-14','CABA')
+
+15.Cambiar los precios de los productos de tipo sólido a 66,60.
+
+UPDATE `producto` SET `precio`= 66.60 WHERE `tipo` = 'solido'
+
+16.Cambiar el stock a 0 de todos los productos cuyas cantidades de stock sean menores
+a 20 inclusive.
+
+UPDATE `producto` SET `stock`= 0 WHERE `stock`< 21
+
+17.Eliminar el producto número 1010.
+
+DELETE FROM `producto` WHERE `id_producto` = 1010
+
+18.Eliminar a todos los usuarios que no han vendido productos.
+
+DELETE FROM `usuario` WHERE usuario.id_usuario NOT IN (SELECT venta.id_usuario FROM `venta`)
