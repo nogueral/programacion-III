@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "420e3537-ed39-4e6f-a065-dce27b7fe82f",
+		"name": "Programacion-III",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ejercicio20",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Miguel",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "3333",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "miguel@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/clase03/ejercicio20/registro.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase03",
+						"ejercicio20",
+						"registro.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio21",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Noguera/clase03/ejercicio21/listado.php?listado=usuarios",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase03",
+						"ejercicio21",
+						"listado.php"
+					],
+					"query": [
+						{
+							"key": "listado",
+							"value": "usuarios"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio22",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "clave",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "leandrodnog@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/clase03/ejercicio22/login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase03",
+						"ejercicio22",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio23",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "3333",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "juan@juan.com",
+							"type": "text"
+						},
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/image0.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase04/ejercicio23/registro.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase04",
+						"ejercicio23",
+						"registro.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio24",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Noguera/clase04/ejercicio24/listado.php?listado=usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase04",
+						"ejercicio24",
+						"listado.php"
+					],
+					"query": [
+						{
+							"key": "listado",
+							"value": "usuarios"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio25",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoBarra",
+							"value": "857465",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "yogur",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "lacteo",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "124",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "92.30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase04/ejercicio25/altaProducto.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase04",
+						"ejercicio25",
+						"altaProducto.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio26",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoBarra",
+							"value": "888777",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "7297",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase04/ejercicio26/realizarVenta.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase04",
+						"ejercicio26",
+						"realizarVenta.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio27",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Maria",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "Gomez",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "4444",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "maria@maria.com",
+							"type": "text"
+						},
+						{
+							"key": "localidad",
+							"value": "CABA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase06/registro.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase06",
+						"registro.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio28",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Noguera/clase06/listado.php?listado=ventas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase06",
+						"listado.php"
+					],
+					"query": [
+						{
+							"key": "listado",
+							"value": "ventas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio29",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "clave",
+							"value": "2222",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "leandro@hola.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase06/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase06",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio30",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoBarra",
+							"value": "77889977",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Otto",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "solido",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "88",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase06/altaProducto.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase06",
+						"altaProducto.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ejercicio31",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoBarra",
+							"value": "77889977",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "109",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Noguera/clase06/realizarVenta.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"clase06",
+						"realizarVenta.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
