@@ -195,9 +195,8 @@ class Producto
         return $array;
     }
 
-    public static function ArmarLista()
+    public static function ArmarLista($array)
     {
-        $array = self::TraerTodosLosProductos();
 
         foreach ($array as $prod) {
             echo "<ul>";
@@ -274,6 +273,40 @@ class Producto
         return $consulta->rowCount();
     }
 
+    public static function TraerTodosLosProductosOrdenados($order)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+
+        if($order == 1)
+        {
+            $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM producto ORDER BY nombre DESC');
+        } else{
+            $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM producto ORDER BY nombre ASC');
+        }
+        
+        $consulta->execute(); 
+        
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Producto');
+    }
+
+    public static function StockTotalPorFechas($min, $max)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta =$objetoAccesoDato->RetornarConsulta('SELECT SUM(stock) AS cantidadTotal FROM producto WHERE fecha_de_creacion BETWEEN :minimo AND :maximo');
+        $consulta->bindValue(':minimo',$min, PDO::PARAM_STR);
+        $consulta->bindValue(':maximo',$max, PDO::PARAM_STR);
+        $consulta->execute(); 
+        return $consulta->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function TraerProductos($limit)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM producto LIMIT :limite');
+        $consulta->bindValue(':limite',$limit, PDO::PARAM_INT);
+        $consulta->execute(); 
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Producto');
+    }
 
 }
 

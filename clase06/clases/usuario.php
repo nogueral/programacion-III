@@ -230,10 +230,8 @@ class Usuario
         return $array;
     }
 
-    public static function ArmarListaBD()
+    public static function ArmarListaBD($array)
     {
-        $array = self::TraerTodosLosUsuarios();
-
         foreach ($array as $user) {
             echo "<ul>";
             echo "<li>" . $user->id . "</li>";
@@ -283,6 +281,29 @@ class Usuario
         $consulta->execute();
         return $consulta->rowCount();
     }
+
+    public static function TraerTodosLosUsuariosOrdenados($order)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+
+        if($order == 1)
+        {
+            $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM usuario ORDER BY apellido DESC');
+        } else{
+            $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM usuario ORDER BY apellido ASC');
+        }
+        
+        $consulta->execute(); 
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Usuario');
+    }
+
+    public static function FiltrarUsuariosPorNombre($char)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM usuario WHERE nombre LIKE '%" . $char . "%' or apellido like '%" . $char . "%'");
+		$consulta->execute();			
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "usuario");		
+	}
 }
 
 

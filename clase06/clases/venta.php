@@ -59,9 +59,8 @@ class Venta
         return $array;
     }
 
-    public static function ArmarLista()
+    public static function ArmarLista($array)
     {
-        $array = self::TraerTodasLasVentas();
 
         foreach ($array as $venta) {
             echo "<ul>";
@@ -87,7 +86,65 @@ class Venta
         return $objetoAccesoDato->RetornarUltimoIdInsertado();
     }
 
-    
+    public static function TraerTodasLasVentasPorCantidad($min, $max)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta =$objetoAccesoDato->RetornarConsulta('SELECT * FROM venta WHERE cantidad BETWEEN :minimo AND :maximo');
+        $consulta->bindValue(':minimo',$min, PDO::PARAM_INT);
+        $consulta->bindValue(':maximo',$max, PDO::PARAM_INT);
+        $consulta->execute(); 
+        $array = $consulta->fetchAll(PDO::FETCH_CLASS, 'Venta');
+        return $array;
+    }
+
+    public static function MostrarNombres()
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT usuario.nombre as nombreUsuario , producto.nombre as nombreProducto FROM `usuario` INNER JOIN `venta` ON usuario.id = venta.id_usuario INNER JOIN `producto` ON producto.id = venta.id_producto;");
+        $consulta->execute();			
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public static function MontoPorVenta(){
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT venta.cantidad*producto.precio as monto FROM `venta` INNER JOIN `producto` ON venta.id_producto = producto.id");
+        $consulta->execute();			
+        return $consulta->fetchAll(PDO::FETCH_OBJ);	
+
+    }
+
+    public static function CantidadTotalPorUsuario($producto, $usuario){
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT SUM(`cantidad`) as 'cantidadTotal' FROM `venta` WHERE `id_producto` = :producto AND `id_usuario` = :usuario");
+        $consulta->bindValue(':producto', $producto, PDO::PARAM_INT);
+        $consulta->bindValue(':usuario', $usuario, PDO::PARAM_INT);
+        $consulta->execute();			
+        return $consulta->fetchAll(PDO::FETCH_OBJ);	
+    }
+
+    public static function ProductosPorLocalidad($localidad){
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT id_producto FROM `venta` INNER JOIN `usuario` ON usuario.id = venta.id_usuario WHERE usuario.localidad = :localidad
+        ");
+        $consulta->bindValue(':localidad', $localidad, PDO::PARAM_STR);
+        $consulta->execute();			
+        return $consulta->fetchAll(PDO::FETCH_OBJ);	
+
+    }
+
+    public static function VentasEntreDosFechas($fechaUno, $fechaDos){
+
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM `venta` WHERE `fecha_de_venta` BETWEEN :fechaUno AND :fechaDos");
+        $consulta->bindValue(':fechaUno', $fechaUno, PDO::PARAM_STR);
+        $consulta->bindValue(':fechaDos', $fechaDos, PDO::PARAM_STR);
+        $consulta->execute();			
+        return $consulta->fetchAll(PDO::FETCH_CLASS, "venta");	
+
+    }
 }
 
 
