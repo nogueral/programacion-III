@@ -12,7 +12,7 @@ cada objeto o clase tendrán los métodos para responder a la petición
 devolviendo un listado <ul> o tabla de html <table>
 */
 
-if(isset($_GET["listado"]))
+if(isset($_GET["listado"]) && isset($_GET["listado"]) && $_GET["archivo"] == "listado.php")
 {
     switch ($_GET["listado"])
     {

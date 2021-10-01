@@ -17,7 +17,7 @@ Hacer los métodos necesarios en las clases
 LEANDRO NOGUERA
 */
 
-if(isset($_POST['codigoBarra']) && isset($_POST['id']) && isset($_POST['cantidad']))
+if(isset($_POST['codigoBarra']) && isset($_POST['id']) && isset($_POST['cantidad']) && isset($_GET["archivo"]) && $_GET["archivo"] == "realizarVenta.php")
 {
 
     $auxProd = Producto::TraerUnProducto($_POST['codigoBarra']);

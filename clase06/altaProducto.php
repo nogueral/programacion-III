@@ -17,7 +17,7 @@ Hacer los métodos necesarios en la clase
 LEANDRO NOGUERA
 */
 
-if(isset($_POST['codigoBarra']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_POST['stock']) && isset($_POST['precio']))
+if(isset($_POST['codigoBarra']) && isset($_POST['nombre']) && isset($_POST['tipo']) && isset($_POST['stock']) && isset($_POST['precio']) && isset($_GET["archivo"]) && $_GET["archivo"] == "altaProducto.php")
 {
     $prod = Producto::CrearObjeto($_POST['codigoBarra'],$_POST['nombre'],$_POST['tipo'],$_POST['stock'],$_POST['precio']);
 

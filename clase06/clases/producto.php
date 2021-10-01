@@ -260,6 +260,20 @@ class Producto
         return $retorno;
     }
 
+    public function ModificarProducto()
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta =$objetoAccesoDato->RetornarConsulta("UPDATE producto SET nombre = :nombre, tipo = :tipo, stock = :stock, precio = :precio, fecha_de_modificacion = :fecha_de_modificacion WHERE codigo_de_barra = :codigo_de_barra");
+        $consulta->bindValue(':codigo_de_barra',$this->codigo_de_barra, PDO::PARAM_INT);
+        $consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':tipo',$this->tipo, PDO::PARAM_STR);
+        $consulta->bindValue(':stock',$this->stock, PDO::PARAM_INT);
+        $consulta->bindValue(':precio',$this->precio, PDO::PARAM_INT);
+        $consulta->bindValue(':fecha_de_modificacion',$this->fecha_de_modificacion, PDO::PARAM_STR);
+        $consulta->execute();
+        return $consulta->rowCount();
+    }
+
 
 }
 

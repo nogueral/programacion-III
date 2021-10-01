@@ -11,7 +11,7 @@ guardando los datos la base de datos
 retorna si se pudo agregar o no.
 */
 
-if(isset($_POST["nombre"]) && isset($_POST["clave"]) && isset($_POST["mail"]) && isset($_POST["apellido"]) && isset($_POST["localidad"]))
+if(isset($_POST["nombre"]) && isset($_POST["clave"]) && isset($_POST["mail"]) && isset($_POST["apellido"]) && isset($_POST["localidad"]) && isset($_GET["archivo"]) && $_GET["archivo"] == "registro.php")
 {
     $user = Usuario::CrearObjeto($_POST["nombre"], $_POST["apellido"], $_POST["clave"], $_POST["mail"], $_POST["localidad"]);
     

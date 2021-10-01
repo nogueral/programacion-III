@@ -272,6 +272,17 @@ class Usuario
         $consulta->execute();
         return $consulta->fetchObject('Usuario');
     }
+
+    public function ModificarUsuario($claveNueva)
+    {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+        $consulta =$objetoAccesoDato->RetornarConsulta("UPDATE usuario SET clave = :claveNueva WHERE mail = :mail AND clave = :clave");
+        $consulta->bindValue(':claveNueva',$claveNueva, PDO::PARAM_STR);
+        $consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
+        $consulta->bindValue(':mail',$this->mail, PDO::PARAM_STR);
+        $consulta->execute();
+        return $consulta->rowCount();
+    }
 }
 
 

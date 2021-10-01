@@ -4,13 +4,32 @@
     {
         switch ($_GET['archivo']) {
             case 'registro.php':
-                header('Location: http://localhost/Noguera/clase06/registro.php');
+                include "registro.php";
                 break;
-            
+            case 'listado.php':
+                include "listado.php";
+                break;
+            case 'login.php':
+                include "login.php";
+                break;
+            case 'altaProducto.php':
+                include "altaProducto.php";
+                break;
+            case 'realizarVenta.php':
+                include "realizarVenta.php";
+                break;
+            case 'modificacionUsuario.php':
+                include "modificacionUsuario.php";
+                break;
+            case 'modificacionProducto.php':
+                include "modificacionProducto.php";
+                break;
             default:
-                # code...
+                echo "No existe listado";
                 break;
         }   
 
+    } else{
+        echo "Error en los datos";
     }
 ?>

@@ -18,7 +18,7 @@ Hacer los métodos necesarios en la clase usuario.
 LEANDRO NOGUERA
 */
 
-if(isset($_POST["clave"]) && isset($_POST["mail"]))
+if(isset($_POST["clave"]) && isset($_POST["mail"]) && isset($_GET["archivo"]) && $_GET["archivo"] == "login.php")
 {
     $user = Usuario::CrearObjeto("empty", "empty", $_POST["clave"], $_POST["mail"]);
 
