@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "fe98b6ae-07aa-4417-89f4-be5c72abcc6f",
+		"name": "PrimerParcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PizzaConsultar.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/pizza.jfif",
+							"disabled": true
+						},
+						{
+							"key": "sabor",
+							"value": "roquefort",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "molde",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "400",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=PizzaConsultar.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "sabor",
+							"value": "roquefort",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "molde",
+							"disabled": true
+						},
+						{
+							"key": "cantidad",
+							"value": "4",
+							"disabled": true
+						},
+						{
+							"key": "archivo",
+							"value": "PizzaConsultar.php"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PizzaCarga.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sabor",
+							"value": "cuatro quesos",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "molde",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=PizzaCarga.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "PizzaCarga.php"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AltaVenta.php",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "mail",
+						"value": "leandrodnog@gmail.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sabor",
+						"value": "roquefort",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "tipo",
+						"value": "molde",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "cantidad",
+						"value": "1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mail",
+							"value": "leandrodnog@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "sabor",
+							"value": "roquefort",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "molde",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/pizza.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=AltaVenta.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "AltaVenta.php"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultasVentas.php",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=ConsultasVentas.php&fecha=2021-10-05&fechaUno=2021-10-05&fechaDos=2021-10-19&user=leandro@leandro.com&sabor=roquefort",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "ConsultasVentas.php"
+						},
+						{
+							"key": "fecha",
+							"value": "2021-10-05"
+						},
+						{
+							"key": "fechaUno",
+							"value": "2021-10-05"
+						},
+						{
+							"key": "fechaDos",
+							"value": "2021-10-19"
+						},
+						{
+							"key": "user",
+							"value": "leandro@leandro.com"
+						},
+						{
+							"key": "sabor",
+							"value": "roquefort"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarVenta.php",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "usuario",
+							"value": "miguel@miguel.com",
+							"type": "text"
+						},
+						{
+							"key": "sabor",
+							"value": "anana",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "piedra",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nroPedido",
+							"value": "4020",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=ModificarVenta.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "ModificarVenta.php"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarVenta.php",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nroPedido",
+							"value": "4686",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=BorrarVenta.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "BorrarVenta.php"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DevolverPizza.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nroPedido",
+							"value": "6173",
+							"type": "text"
+						},
+						{
+							"key": "causa",
+							"value": "Pizza fria",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/pizza.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/Noguera/1erparcial/index.php?archivo=DevolverPizza.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Noguera",
+						"1erparcial",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "archivo",
+							"value": "DevolverPizza.php"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
